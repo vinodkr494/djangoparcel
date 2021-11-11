@@ -1,1 +1,41 @@
-{{form}}
+{% extends 'base.html' %}
+{% load bootstrap4 %}
+{% block title %}Sign In{% endblock title %}
+{% block content %}
+    <div class="container-fluid ">
+        <div class="row justify-content-center ">
+            <div class="col-lg-4 mt-4">
+                <div class="card ">
+                    <div class="card-header text-center">
+                        <h4>
+                        {% if request.GET.next != '/courier/' %}
+                            <strong >Customer</strong>
+                        {% else %}
+                            <strong >Courier</strong>
+                        {% endif %}
+
+                        </h4>
+                    </div>
+                    <div class="card-body">
+
+                        <div class="mt-4">
+                            <form action="" method="POST">
+                                {% csrf_token %}
+
+                                {% bootstrap_form_errors form %}
+                                {% bootstrap_label "Email" %}
+                                {% bootstrap_field form.username show_label=False  placeholder="Email" %}
+                                {% bootstrap_field form.password %}
+
+                            <button type="submit" class="btn btn-primary btn-block">Sign In</button>
+                            </form>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+{% endblock content %}
