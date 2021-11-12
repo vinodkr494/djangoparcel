@@ -14,7 +14,7 @@
 
 </head>
 <body>
-<nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+<nav class="navbar  navbar-dark navbar-expand-lg fixed-top bg-dark">
   <a class="navbar-brand" href="{% url 'main:home' %}">DjangoParcelApp</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
@@ -34,14 +34,13 @@
   </div>
   {% else %}
     <form action="" class="form-inline">
-      <span>{{ request.user.username }}</span>
-      <button class="btn btn-outline-primary">Sign-Out</button>
+      <span class="text-white mr-2">{{ request.user.username }}</span>
+      <a href="/sign-out/" class="btn btn-light">Sign Out</a>
     </form>
   {% endif %}
 
 </nav>
 <div class="container-fluid mt-5">
-
 {% block content %}{% endblock %}
 </div>
 
